@@ -109,7 +109,7 @@ app.post('/invoice/login', async (request, response) => {
     }
 });
 
-app.get('/invoice/user',async (req,res) => {
+app.get('/invoice/user', Authorization,async (req,res) => {
     const {userId} = req.query
     try {
         const getUserDetailsQuery = `
@@ -124,7 +124,7 @@ app.get('/invoice/user',async (req,res) => {
 });
 
 
-app.post('/invoice/add', async (request, response) => {
+app.post('/invoice/add',Authorization, async (request, response) => {
     const {invoiceDetails} = request.body;
     const {userId, clientName, clientCompany, clientPhNo, invoiceDate, itemDetails, totalAmount, totalAmountWithTax } = invoiceDetails
     try {
@@ -144,7 +144,7 @@ app.post('/invoice/add', async (request, response) => {
     }
 });
 
-app.get('/invoice/get', async (req, res) => {
+app.get('/invoice/get',Authorization, async (req, res) => {
     const {userId} = req.query;
     try {
         const getInvoiceQuery = `SELECT * FROM my_invoice WHERE user_id= ?`;
@@ -163,7 +163,7 @@ app.get('/invoice/get', async (req, res) => {
 });
 
 
-app.delete('/invoice/delete', async (request, response) => {
+app.delete('/invoice/delete', Authorization,async (request, response) => {
     const {invoiceId} = request.query
     try {
         const deleteInvoiceQuery = `DELETE FROM my_invoice WHERE invoice_id= ?`
