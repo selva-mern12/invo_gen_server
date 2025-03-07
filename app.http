@@ -1,0 +1,27 @@
+POST http://localhost:3001/invoice/register
+Content-Type: application/json
+
+{
+    "userDetails" : {
+        "name": "selva",
+        "username": "selva_1201",
+        "password": "selva@K1201",
+        "companyName": "selva&co", 
+        "companyAddress": "Srivilliputtur", 
+        "mobileNumber" : "9123456789"
+    }
+}
+
+### 
+
+POST http://localhost:3001/invoice/login
+Content-Type: application/json
+
+{
+    "userDetails" :{ "username": "selva_1201",
+    "password": "selva@K1201"}
+}
+
+### 
+
+GET http://localhost:3001/invoice/user?userId=4aa99806-b6f3-4253-858c-dbab2e228dae
