@@ -117,7 +117,7 @@ app.get('/invoice/user', Authorization,async (req,res) => {
             FROM user 
             WHERE user_id = ?; `;
         const getUserDetails =await db.get(getUserDetailsQuery,[userId]);
-        res.send(getUserDetails)
+        res.json(getUserDetails)
     } catch (error) {
         res.status(500).json({error: `Db Error ${error.message}`})
     }
